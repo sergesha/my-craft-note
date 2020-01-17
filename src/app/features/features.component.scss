@@ -1,0 +1,39 @@
+table {
+  width: 98%;
+  margin: 1rem;
+}
+
+:host ::ng-deep {
+  th > .mat-sort-header-sorted {
+    font-weight: bolder;
+  }
+}
+
+tr {
+  & > td:nth-child(1){
+    width: 30%;
+  }
+
+  & > td:nth-child(2) {
+    width: 10%;
+  }
+
+  &:hover {
+    & > td:nth-child(1),
+    & > td:nth-child(2) {
+      background-color: rgba(83, 185, 135, 0.1);
+    }
+  }
+}
+
+@for $i from 0 through 100 {
+  .bar-chart-#{$i} {
+    background-image: linear-gradient(to left, rgba(83, 185, 135, 0.1), rgba(83, 185, 135, 0.1));
+    background-size: #{$i+'%'} auto !important;
+    background-repeat: no-repeat;
+  }
+}
+
+.selected {
+  font-weight: bold;
+}

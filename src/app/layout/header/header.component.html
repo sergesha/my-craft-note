@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" class="mat-elevation-z5">
+  <mat-toolbar-row>
+    <button mat-icon-button routerLink="/">
+      <mat-icon class="icon" aria-hidden="false" aria-label="Home">home</mat-icon>
+      <span class="mat-body">My Craft Note Challenge</span>
+    </button>
+
+    <span class="spacer"></span>
+
+    <ng-container *ngIf="user$ | async as user; else notLogged">
+      <span class="mat-body">{{ user.email }}</span>
+      <button mat-button (click)="logout()" aria-label="Logout">Logout</button>
+    </ng-container>
+
+    <ng-template #notLogged>
+      <button mat-stroked-button color="accent" routerLink="/register" aria-label="Register">Register</button>
+      <button mat-button routerLink="/login" aria-label="Login">Login</button>
+    </ng-template>
+
+    <button mat-icon-button routerLink="/about">
+      <mat-icon class="icon" aria-hidden="false" aria-label="About">help_outline</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
