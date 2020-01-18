@@ -1,31 +1,26 @@
 language: node_js
 node_js:
-  - "13.5"
+- '13.5'
 dist: trusty
 sudo: false
-
 branches:
   only:
   - master
-
 before_script:
-  - npm install -g firebase-tools
-  - npm install -g @angular/cli
-
+- npm install -g firebase-tools
+- npm install -g @angular/cli
 cache:
   directories:
   - node_modules
-
 install:
-  - npm install
-
+- npm install
 script:
-  # - npm run lint
-  # - ng e2e --protractor-config=./e2e/protractor-ci.conf.js
-  - ng test --silent --no-stack-trace --ci
-  - ng build --prod --aot
-
+- ng test --silent --no-stack-trace --ci
+- ng build --prod --aot
 deploy:
   provider: firebase
   token:
-    secure: HnaCwxjKGWqoGarywEQ5kAeAywUPz6tGgRvbDqvyHhOOPSusuDgT1krzLwkI9NpGqoIEts4HytZDR7FY9riceMZAVSImN3XdadGvNkaMrbCtW1RxZQrGDCEzlfZSaVgwtTOycMVa56CIeuypnfaCOK3vFBwd44soShChW59rt4yV5LwEQxqIhWJNFSekW5N9/smRAGo5PiVfCZnsuYedtHOUHlNPwuLx/D8C89Royz2SqTgrb6wAnAJzdj9CuSgBp1lUXs3Z0aMweb8qaCGnRHMfH5uGhpZg2XO9hBEtld3tc00iPXskfuVWhncxondVDxcy9yncaWnehGnfWIqkCeKq9rbwiVweZ6PjTfhdmVv1TXhpBvOaTDBM3zSkJ7ESeVF3WJuzUA0AqFmtOCu+sa9n54cjl/Oy0YwxAFvQzOGaZjrN7465/Q7DHc003SYtrgCHC1PskziHuDLQ0v/bI4VSrA343R1D8uyWBhpqwvcC3DvnUvopzGPY//cBji6OtWVfhMz2ytKaVDu8E0yFUIJazQZCUgJFiZnjCm+lfqE2+7hY4W58yF/o7RrvatEDTehsXmneR3OhGaJxyJisfZGReO/wq8hcMCMF+8dITkbKrrilbfmMyRRsnhgZhFenCs48UA4RyMqjoalESVqMtg+wHW/5x+vCJTPloo1KDfs=
+    secure: QHtOdumgARM4NATETBQvNS7nPlBL8rg8WCmZE0sgn2oDNXzk2Ngp8gH4V4qWUt3kB7ZmiYrQL19RmwcpZ54U3XA7c46K4PVnedfRqzh6wO/f7ZQBSM3mJG8ccE2GiTSSWitp6IxCpLJQ90+fvI0uNFMYfi+xZikZV5bbyydAyGgXN6nfLcKmZyXBw4e2v1Al0ioB47UJ/GLJBD5jK6rUlgBfLQ1v9WchxvxFk2c9FOn09iPy59IJKfVsfuqZtQA/ILiYYBcCkRUddwDJAk2dC8f3WP1creRf+NQz7Pw80WSLriMy9ERXUvV3G4O8sJA9cn2dQcSAw+DpMR0ckA58Vz9CzwfuP8OsFFMwHp6fqPdWMcfaULpgAZCVlSx7d9gdEWJy8kOd9uG8MTw5GnAhFuBUin74kHnUJUTqQbKHUp7EJgAeqgamkyLolWu6lGfAFKMv4/vvTlk5U6hfdThsYlQS/Ue8TuKIMLW4tLOaJxfsJZIEh3XogGCc9j7EUXoPH0y4kpXuJ7yVOBXNS3jc59a98fYbcl5PAlx9/38r5X7Ec8K5ADFGqzITrHMzuakR43ZExs894EtHTj4ijpJkSQXxT81ApA77tAKiCAPJjZeKcjvFJh85vpYOZVVQVaSWFCrabEJtO1Qe+/W1C8QNf1AAPEWjHP1MS05HvwLN8ag=
+env:
+  global:
+  - secure: O/Mg19vzAwUIjIs7yWIIXO+ECnIE+YqPIgXVN6zFvSb/+BLLTQ+4R+US1clG87siJDv3LpM8KCaOxmoTfPTrGES/zCyh/5Hf+P9dv4o8za7sOk9ysIAhLxSBzsBBnNBurC0Y+G+ekSZ9ZkiZQkF0I3MtjPfkg9u5/NBH5NaQwI2iXKv5Da0yDKG27jc6Kv7wR2JImVzJp4dV+5Upt9GQldJeYhwskN35OBgCX6nXud5uv59lVV35qwhMSHCGTLw5pvw6uWargmmQeqf0dvX/f2FcQtilAq7cs/LgmAjN/mo+ku95SfxsCAxfR7QZM+CDfT6FN3/nP00XgMDy6WfGSfNXB7IQ/oeFCo+Hp9s043rNZnY935K2xjkTLkiiDI55qvIIaifNa3rkrKtuNCVwwRDgFL5OY+q3F9oZ0o+s01deFabCsG5qTcJIcuHr22mYDdVVIH4+jPQ/aO8RU8/th3RXYTKuMTcIeZCHprfhK11fiqyVGY1mk28uZINOPyXWNsAwi9yUzYpeJ0qyotqjtomPT+l6ZAsFs0LDFuRs71KDvT5+UO0CwpcUY+VLuWL909mqI+/604gpY4w6ktf96WjLeOCAhLmJoJLzuPvz9qSMhd30ISYxvw0h8pRR8+khpC3e9TzBiXZqNfUr+DH+f/BvML78EVn+eUUVqvzfK6Y=
