@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/my-craft-note",
+    "public": "dist/",
     "ignore": [
       "firebase.json",
       "**/.*",
