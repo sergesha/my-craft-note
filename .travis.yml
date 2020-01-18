@@ -19,14 +19,6 @@ cache:
 install:
   - npm install
 
-addons:
-  chrome: stable
-  apt:
-    sources:
-    - google-chrome
-    packages:
-    - google-chrome-stable
-
 script:
   # - npm run lint
   # - npm run test:headless
