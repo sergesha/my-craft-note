@@ -1,3 +1,40 @@
+language: node_js
+node_js:
+  - "13.5"
+dist: trusty
+sudo: false
+
+branches:
+  only:
+  - master
+
+before_script:
+  - npm install -g firebase-tools
+  - npm install -g @angular/cli
+
+cache:
+  directories:
+  - node_modules
+
+install:
+  - npm install
+
+addons:
+  chrome: stable
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+
+script:
+  # - npm run lint
+  # - npm run test:headless
+  # - xvfb-run npm run e2e
+  # - ng test --watch=false --progress=false --browsers=ChromeHeadlessCI
+  # - ng e2e --protractor-config=./e2e/protractor-ci.conf.js
+  - ng build --prod --aot
+
 deploy:
   provider: firebase
   token:
