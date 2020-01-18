@@ -25,7 +25,7 @@ script:
   # - xvfb-run npm run e2e
   # - ng test --watch=false --progress=false --browsers=ChromeHeadlessCI
   # - ng e2e --protractor-config=./e2e/protractor-ci.conf.js
-  - ng build --prod --aot
+  - ng build --prod
 
 deploy:
   provider: firebase
