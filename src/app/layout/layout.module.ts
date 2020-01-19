@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './header/header.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     CommonModule,
     SharedModule,
+    MatDividerModule,
   ],
   exports: [
     HeaderComponent,

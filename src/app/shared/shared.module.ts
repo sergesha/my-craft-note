@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -23,6 +24,7 @@ import { FunctionPipe } from './pipes/function.pipe';
   ],
   exports: [
     RouterModule,
+    FlexLayoutModule,
     MatButtonModule,
     MatButtonModule,
     MatCardModule,

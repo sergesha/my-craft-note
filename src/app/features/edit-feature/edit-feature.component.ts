@@ -36,7 +36,7 @@ export class EditFeatureComponent implements OnInit, OnChanges {
       ] ],
       quantity: [ null, [
         Validators.required,
-        Validators.min(0),
+        Validators.min(1),
       ] ],
     });
   }
@@ -49,8 +49,8 @@ export class EditFeatureComponent implements OnInit, OnChanges {
     }
   }
 
-  public buttonTitle(item: IFeature): string {
-    return item.id ? 'Save' : 'Add';
+  public buttonIcon(item: IFeature): string {
+    return item.id ? 'save' : 'note_add';
   }
 
   public onDelete(): void {

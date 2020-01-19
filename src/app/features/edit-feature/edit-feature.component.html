@@ -1,41 +1,48 @@
-<div>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" #ngForm="ngForm" class="container">
-    <mat-form-field class="form-element" appearance="outline">
-      <mat-label>Feature name</mat-label>
-      <input type="text" matInput placeholder="Enter name" formControlName="featureName">
-      <mat-error *ngIf="form.get('featureName').invalid && form.get('featureName').touched">
-        Wrong data
-      </mat-error>
-    </mat-form-field>
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" #ngForm="ngForm">
+    <div fxLayout="row" fxLayout.xs="column">
 
-    <mat-form-field class="form-element" appearance="outline">
-      <mat-label>Importance</mat-label>
-      <input type="number" matInput placeholder="Enter importance" formControlName="importance">
-      <mat-error *ngIf="form.get('importance').invalid && form.get('importance').touched">
-        Wrong data
-      </mat-error>
-    </mat-form-field>
+      <div fxLayout="row" fxFlex="80%" fxFlex.xs="95%" fxLayoutGap="1rem">
+        <mat-form-field fxFlex="1 0 40%" fxFlex.xs="1 1 50%" appearance="outline">
+          <mat-label>Feature name</mat-label>
+          <input type="text" matInput placeholder="Enter name" formControlName="featureName">
+          <mat-error *ngIf="form.get('featureName').invalid && form.get('featureName').touched">
+            Required
+          </mat-error>
+        </mat-form-field>
 
-    <mat-form-field class="form-element" appearance="outline">
-      <mat-label>Quantity</mat-label>
-      <input type="number" matInput placeholder="Enter quantity" formControlName="quantity">
-      <mat-error *ngIf="form.get('quantity').invalid && form.get('quantity').touched">
-        Wrong data
-      </mat-error>
-    </mat-form-field>
+        <mat-form-field fxFlex="1 1 20%" fxFlex.xs="1 1 25%" appearance="outline">
+          <mat-label>Importance</mat-label>
+          <input type="number" matInput placeholder="Enter importance" formControlName="importance">
+          <mat-error *ngIf="form.get('importance').invalid && form.get('importance').touched">
+            Required ( 0 - 100 )
+          </mat-error>
+        </mat-form-field>
 
-    <button mat-raised-button
-            class="form-button"
-            [disabled]="form.invalid"
-            color="primary">{{ form.value | functionPipe: buttonTitle }}
-    </button>
+        <mat-form-field fxFlex="1 1 20%" fxFlex.xs="1 1 25%" appearance="outline">
+          <mat-label>Quantity</mat-label>
+          <input type="number" matInput placeholder="Enter quantity" formControlName="quantity">
+          <mat-error *ngIf="form.get('quantity').invalid && form.get('quantity').touched">
+            Required ( >0 )
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex="20%" [ngStyle.gt-xs]="'margin-top: .7rem;'">
+        <button mat-icon-button
+                [disabled]="form.invalid"
+                color="primary">
+          <mat-icon>{{ form.value | functionPipe: buttonIcon }}</mat-icon>
+        </button>
 
-    <button mat-raised-button
-            type="button"
-            class="form-button"
-            *ngIf="form.get('id').value"
-            (click)="onDelete()"
-            color="accent">Delete
-    </button>
+        <button mat-icon-button
+                type="button"
+                *ngIf="form.get('id').value"
+                (click)="onDelete()"
+                color="accent">
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      </div>
+    </div>
+
   </form>
 </div>
