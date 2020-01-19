@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { asyncScheduler, Observable } from 'rxjs';
-import { delay, observeOn } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { User } from 'firebase';
 

@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 
 import * as firebase from 'firebase';
 
-import { REGEX } from '../../shared/helpers/regex';
+import { REGEX } from '@shared/helpers/regex';
+
 import { AuthService } from '../auth.service';
 
 @Component({

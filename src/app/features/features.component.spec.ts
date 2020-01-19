@@ -7,7 +7,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
+
 import { EditFeatureComponent } from './edit-feature/edit-feature.component';
 import { FeaturesComponent } from './features.component';
 

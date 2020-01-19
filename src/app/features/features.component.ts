@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface IFeature {
@@ -24,7 +24,7 @@ export class FeaturesComponent implements OnInit {
   public dataSource: MatTableDataSource<IFeature> = new MatTableDataSource([]);
   public displayedColumns: string[] = ['name', 'importance', 'quantity'];
   public selectedItem$: BehaviorSubject<IFeature> = new BehaviorSubject(null);
-  public maxQuantity = 0;
+  public maxQuantity: number = 0;
 
   private itemsCollection: AngularFirestoreCollection<IFeature>;
 
@@ -37,7 +37,7 @@ export class FeaturesComponent implements OnInit {
     this.dataSource.sort = this.sort;
 
     this.itemsCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => {
+      map((actions: DocumentChangeAction<IFeature>[]) => actions.map(a => {
         const data: IFeature = a.payload.doc.data() as IFeature;
         const id: string = a.payload.doc.id;
         return { id, ...data };

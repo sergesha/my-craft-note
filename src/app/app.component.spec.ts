@@ -4,9 +4,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { RouterTestingModule } from '@angular/router/testing';
 
+import { SharedModule } from '@shared/shared.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
-import { SharedModule } from './shared/shared.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
